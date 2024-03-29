@@ -15,6 +15,12 @@ use function Roots\bundle;
  */
 add_action('wp_enqueue_scripts', function () {
     bundle('app')->enqueue();
+
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script('browser', get_template_directory_uri() . "/resources/scripts/browser.min.js", [], null, true);
+    wp_enqueue_script('breakpoints', get_template_directory_uri() . "/resources/scripts/breakpoints.min.js", [], null, true);
+    wp_enqueue_script('util', get_template_directory_uri() . "/resources/scripts/util.js", ['jquery'], null, true);
+    wp_enqueue_script('main', get_template_directory_uri() . "/resources/scripts/main.js", ['jquery', 'breakpoints', 'browser'], null, true);
 }, 100);
 
 /**
