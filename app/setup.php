@@ -109,12 +109,18 @@ add_action('after_setup_theme', function () {
     add_theme_support('customize-selective-refresh-widgets');
 }, 20);
 
+require_once 'Widgets/class-recent-sidebar-posts-widget.php';
+require_once 'Widgets/class-recent-sidebar-mini-posts-widget.php';
+
 /**
  * Register the theme sidebars.
  *
  * @return void
  */
 add_action('widgets_init', function () {
+    register_widget(\Recent_Sidebar_Posts_Widget::class);
+    register_widget(\Recent_Sidebar_Mini_Posts_Widget::class);
+
     $config = [
         'before_widget' => '<section class="widget %1$s %2$s">',
         'after_widget' => '</section>',
@@ -128,7 +134,7 @@ add_action('widgets_init', function () {
     ] + $config);
 
     register_sidebar([
-        'name' => __('Footer', 'sage'),
-        'id' => 'sidebar-footer',
+        'name' => __('Social', 'sage'),
+        'id' => 'socials',
     ] + $config);
 });
