@@ -54,6 +54,10 @@ add_action('after_setup_theme', function () {
         'primary_navigation' => __('Primary Navigation', 'sage'),
     ]);
 
+    register_nav_menus([
+        'secondary_navigation' => __('Secondary Navigation', 'sage'),
+    ]);
+
     /**
      * Disable the default block patterns.
      *
