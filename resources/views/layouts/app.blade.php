@@ -2,15 +2,15 @@
 <html @php(language_attributes())>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     @php(do_action('get_header'))
     @php(wp_head())
   </head>
 
-  <body @php(body_class())>
+  <body @php(body_class('is-preload'))>
     @php(wp_body_open())
 
-    <div id="app">
+    <div id="wrapper">
       <a class="sr-only focus:not-sr-only" href="#main">
         {{ __('Skip to content') }}
       </a>
@@ -22,9 +22,7 @@
       </main>
 
       @hasSection('sidebar')
-        <aside class="sidebar">
-          @yield('sidebar')
-        </aside>
+        @yield('sidebar')
       @endif
 
       @include('sections.footer')

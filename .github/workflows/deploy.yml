@@ -13,4 +13,4 @@ jobs:
       - name: Build
         run: yarn build
       - name: Deploy
-        run: rsync -av --progress --exclude='node_modules' --exclude='vendor' --exclude='resources/fonts' --exclude='resources/images' --exclude='resources/scripts' --exclude='resources/styles' --exclude='.github' --exclude='.git' .  ${{ secrets.DEPLOY_PATH }}
+        run: rsync -av --progress --exclude='node_modules' --exclude='resources/fonts' --exclude='resources/images' --exclude='resources/scripts' --exclude='resources/styles' --exclude='.github' --exclude='.git' .  ${{ secrets.DEPLOY_PATH }}
